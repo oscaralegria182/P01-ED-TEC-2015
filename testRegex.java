@@ -7,16 +7,19 @@ public class testRegex
       public static void main(String[] args) throws Exception
       {
 	// compilamos el patron
- 	Pattern patron = Pattern.compile("[\\<][a-z][\\>]");
- 	// creamos el Matcher a partir del patron, la cadena como parametro
- 	Matcher encaja = patron.matcher("<div a=6> \n hola\n <div>");
+	String cadena="(<.*>)[^.*]</title>";//[\\<][ca-z][\\>]";
+ 	Pattern patron = Pattern.compile(cadena);
+ 	// creamos el Matcher a pa(rtir del patron, la cadena como parametro
+ 	Matcher encaja = patron.matcher("<title> hola </title>");
  	// invocamos el metodo replaceAll
  	if (encaja.find())
 	{
-		String resultado2 = encaja.replaceAll(":)");
+		String resultado2 = encaja.replaceAll("_");
  		System.out.println("Resultado:\t"+resultado2);
 	}
-	  String input = "www.?regular.com";
+	else
+	    System.out.println("None");
+	/*ing input = "www.?regular.com";
 	  // comprueba que no empieze por punto o @
 	  Pattern p = Pattern.compile("^.|^@");
 	  Matcher m = p.matcher(input);
@@ -55,6 +58,6 @@ public class testRegex
 
 	  if (caracteresIlegales) {
 	    System.out.println("La cadena contiene caracteres ilegales");
-	  }
+	  }*/
       }
 }
